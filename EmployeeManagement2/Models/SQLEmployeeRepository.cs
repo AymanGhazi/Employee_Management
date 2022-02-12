@@ -24,19 +24,19 @@ namespace EmployeeManagement.Models
 
         public Employee Delete(int id)
         {
-         Employee  removedEmployee= context.Employees.Find(id);
-            if (removedEmployee !=null)
+            Employee removedEmployee = context.Employees.Find(id);
+            if (removedEmployee != null)
             {
                 context.Remove(removedEmployee);
                 context.SaveChanges();
             }
-           
+
             return removedEmployee;
         }
 
         public IEnumerable<Employee> GetAllEmployees()
         {
-          return  context.Employees;
+            return context.Employees;
         }
 
         public Employee GetEmployee(int Id)
@@ -46,7 +46,7 @@ namespace EmployeeManagement.Models
 
         public Employee Update(Employee EmployeeChanges)
         {
-          var updatesEmployee=  context.Employees.Attach(EmployeeChanges);
+            var updatesEmployee = context.Employees.Attach(EmployeeChanges);
             updatesEmployee.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             context.SaveChanges();
             return EmployeeChanges;

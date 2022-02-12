@@ -1,0 +1,19 @@
+﻿using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace EmployeeManagement.Security
+{
+    public class CustomEmailConfirmationTokenProvider<Tuser> : DataProtectorTokenProvider<Tuser> where Tuser : class
+    {
+        public CustomEmailConfirmationTokenProvider(IOptions<CustomEmailConfirmtionTokenProviderOptions>
+            options, IDataProtectionProvider dataProtectionProvider) : base(dataProtectionProvider, options)
+        {
+
+        }
+    }
+}
